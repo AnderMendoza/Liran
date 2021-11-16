@@ -1,0 +1,24 @@
+{
+  "name": "liran",
+  "version": "1.0.0",
+  "description": "Bienvenidos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnderMendoza/Liran.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnderMendoza/Liran/issues"
+  },
+  "homepage": "https://github.com/AnderMendoza/Liran#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  }
+}

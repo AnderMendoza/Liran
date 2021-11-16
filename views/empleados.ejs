@@ -1,0 +1,39 @@
+<%-include("template/head",{Title:"Empleados"})%>
+<header>
+    <h1 class="text-center display-4">Registo <span class="text-warning">empleados</span></h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia recusandae quos laudantium dolorum asperiores eum iusto at dolores harum commodi, sunt cupiditate officiis quae ipsa cumque dignissimos vitae! At, non!</p>
+    </header>
+    <main>
+            <div class="container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Edad</th>
+                            <th>Nacionalidad</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (empleadosTable.length>0) { %>
+                            <% empleadosTable.forEach(empleaditos=> { %>
+                                <tr>
+                                    <td><%=empleaditos.id%></td>
+                                    <td><%=empleaditos.nombre%></td>
+                                    <td><%=empleaditos.apellido%></td>
+                                    <td><%=empleaditos.edad%></td>
+                                    <td><%=empleaditos.nacionalidad%></td>
+                                    <td>Null</td>
+                                    </tr>
+                                    
+                            <% }) %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+<%-include("template/footer")%>
