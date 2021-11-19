@@ -26,7 +26,7 @@ server.use(express.static(__dirname + "/public"));
 
 //Primera ruta a configurar
 server.get("/", (req,res) => {
-    res.send("Aqui va la persona encargada del inicio")
+    res.render( "index")
 })
 
 //Ruta(Router) Sergio : "empleados"

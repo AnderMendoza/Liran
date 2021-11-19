@@ -6,7 +6,6 @@ router.get("/",async (req,res)=>{
     try {
         const arrayproductosdb = await PRODUCTOS.find()
         console.log(arrayproductosdb)
-
         res.render("productos",{
             arrayproductos:arrayproductosdb
         })

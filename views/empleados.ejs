@@ -1,7 +1,7 @@
 <%-include("template/head",{Title:"Empleados"})%>
 <header>
     <div class="container">
-    <h1 class="text-center display-3 mb-5">Registo <span class="text-warning">empleados</span></h1>
+    <h1 class="text-center display-2 mb-3 text-danger">Empleados</h1>
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia recusandae quos laudantium dolorum asperiores eum iusto at dolores harum commodi, sunt cupiditate officiis quae ipsa cumque dignissimos vitae! At, non!</p>
     </header>
     </div>
@@ -13,9 +13,8 @@
                             <th>#</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
+                            <th>correo</th>
                             <th>Edad</th>
-                            <th>Nacionalidad</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,8 +24,8 @@
                                     <td><%=empleaditos.id%></td>
                                     <td><%=empleaditos.nombre%></td>
                                     <td><%=empleaditos.apellido%></td>
+                                    <td><%=empleaditos.correo%></td>
                                     <td><%=empleaditos.edad%></td>
-                                    <td><%=empleaditos.nacionalidad%></td>
                                     <td>Null</td>
                                     </tr>
                             <% }) %>
