@@ -39,6 +39,9 @@ server.use("/usuarios", require("./router/usuarios_router"));
 //Ruta plagas: Shirley
 server.use("/plagas",require("./router/plagas_routers"));
 
+//Ruta productos: Anderson
+server.use("/productos", require("./router/productos_router"));
+
 //Error 404 en ejs
 server.use((req, res, next) => {
     res.status(404).render("error_404");
