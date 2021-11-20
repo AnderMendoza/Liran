@@ -1,0 +1,34 @@
+<%-include("template/head",{Title:"Empleados"})%>
+<header>
+    <h1>Auspiciadores</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet ratione deserunt, reprehenderit harum assumenda quas a eius minima corporis error officia eaque pariatur quos corrupti nostrum! Repellendus rem illo culpa!</p>
+</header>
+
+<div class="container mt-3">
+    <h2>Dark Striped Table</h2>
+    <p>Combine .table-dark and .table-striped to create a dark, striped table:</p>            
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Relacion</th>
+          <th>Vigencia</th>
+          <th>Correo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (auspiciadoresTable.length>0) { %>
+         <% auspiciadoresTable.forEach(element => { %>
+            <tr>
+                <td><%=element.empresa%></td>
+                <td><%=element.relacion%></td>
+                <td><%=element.vigencia%></td>
+                <td><%=element.correo%></td>
+              </tr>
+         <% }) %>
+        <% } %>
+        
+      </tbody>
+    </table>
+  </div>
+<%-include("template/footer")%>

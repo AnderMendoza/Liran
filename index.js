@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const bodyPrser = require("Body-parser");
 //requerimiento de express 
 const server = express();
-//puero 3000 que es por defecto 
+//puerto 3000 que es por defecto 
 const puerto = 3000;
 //conectar a mongoDB
 const user = "Anderson";
@@ -49,6 +49,10 @@ server.use("/plagas",require("./router/plagas_routers"));
 
 //Ruta productos: Anderson
 server.use("/productos", require("./router/productos_router"));
+
+//Ruta auspiciadores: jerson
+server.use("/auspiciadores", require("./router/auspiciadores_router"));
+
 
 //Error 404 en ejs
 server.use((req, res, next) => {

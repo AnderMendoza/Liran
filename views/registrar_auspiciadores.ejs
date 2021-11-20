@@ -1,0 +1,36 @@
+<%-include("template/head",{Title:"Empleados"})%>
+
+<h1>REGISTRAR AUSPICIADORES</h1>
+
+<div class="container mt-3">
+    <h2>Stacked form</h2>
+    <form action="#"method="#"> 
+
+
+      <div class="mb-3 mt-3">
+        <label for="empresa">Empresa:</label>
+        <input type="text" class="form-control" id="empresa" placeholder="Ingresar empresa" name="empresa">
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="relacion">Relacion:</label>
+        <input type="text" class="form-control" id="relacion" placeholder="Ingresar relacion" name="relacion">
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="Vigencia">Vigencia:</label>
+        <input type="text" class="form-control" id="vigencia" placeholder="Ingresar vigencia" name="vigencia">
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="correo">Correo:</label>
+        <input type="email" class="form-control" id="correo" placeholder="Ingresar correo" name="correo">
+      </div>
+
+
+      <button type="submit" class="btn btn-primary btn-block">Agregar Auspiciador</button>
+    </form>
+  </div>
+
+
+<%-include("template/footer")%>
