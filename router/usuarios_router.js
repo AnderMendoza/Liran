@@ -17,7 +17,7 @@ router.get("/",async (req, res) => {
 router.get("/registrar", (req, res) => {
         res.render("registrar_usuarios")
 })
-//insertar datos a las tablas atraves de un body-parser
+//insertar datos a las tablas a través de un body-parser
 router.post("/", async (req, res) => {
     const body = req.body;
     try {
