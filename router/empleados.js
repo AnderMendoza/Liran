@@ -12,6 +12,16 @@ router.get("/", async (req, res) => {
     } catch (error) {
         console.log(error)
     }
- })
+})
+router.post("/", async (req, res) => {
+    const body = req.body;
+    try {
+        const empleadosdb = new EMPLEADO(body)
+        await empleadosdb.save()
+        res.redirect("empleados")
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 module.exports = router;
