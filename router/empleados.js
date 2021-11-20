@@ -6,7 +6,6 @@ const EMPLEADO = require("../models/esquema_empleados");
 router.get("/", async (req, res) => {
     try {
         const arrayDB = await EMPLEADO.find();
-        console.log(arrayDB)
         res.render("empleados", {
             empleadosTable: arrayDB
         })

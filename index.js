@@ -2,6 +2,8 @@
 const express = require("express");
 //requerir de mongoose
 const mongoose = require("mongoose");
+//requerir body parser
+const bodyPrser = require("Body-parser");
 //requerimiento de express 
 const server = express();
 //puero 3000 que es por defecto 
@@ -10,11 +12,18 @@ const puerto = 3000;
 const user = "Anderson";
 const password = "12345";
 const dbname = "Liran";
-const uri = `mongodb+srv://${user}:${password}@clusteram.9pggx.mongodb.net/${dbname}?retryWrites=true&w=majority
-`
+const uri = `mongodb+srv://${user}:${password}@clusteram.9pggx.mongodb.net/${dbname}?retryWrites=true&w=majority`
+
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('conectado a mongodb'))
     .catch(e => console.log('error de conexión', e))
+
+//configurar body-parser
+
+//propesar datos atraves del metodo post
+server.use(express.urlencoded({ extended: true }));
+//enviar datos a traves de json
+server.use(express.json());
 
 //intalacion de los template engines , osea los ejs 
 server.set("view engine", "ejs");
@@ -33,7 +42,6 @@ server.get("/", (req,res) => {
 server.use("/empleados", require("./router/empleados"));
 
 //Ruta usuarios : Sergio
-
 server.use("/usuarios", require("./router/usuarios_router"));
 
 //Ruta plagas: Shirley
