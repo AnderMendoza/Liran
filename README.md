@@ -5,6 +5,10 @@
 4. [FAQs](#faqs)
 ## Info General
 ***
+------------------------------------------------------
+IMPORTANTE!!!
+Antes de querer ejecutar el aplicativo web tienes ejecutar el terminal e ingresar el comando "npm i" para descargar los recursos de NodeJS. 
+------------------------------------------------------
 Proyecto académico de desarrollo web. Esta página esta centrada en ofrecer productos y sevicios relacionados a la limpieza. 
 ## Screenshot
 ![Imagen de la portada de la página web](#)
