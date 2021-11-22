@@ -18,7 +18,7 @@ router.get("/registrar", (req, res) =>{
         res.render("registrar_plagas")
 })
 
-//Insertar datos
+//insertar datos a las tablas a través de un body-parser
 router.post("/", async (req, res) =>{
     const body = req.body;
     try {
@@ -30,47 +30,48 @@ router.post("/", async (req, res) =>{
     }
 })
 
-//unico formulario
-// router.get("/:id", async (req, res) => {
-//     const id = req.params.id
-//     try {
-      
-//         const usuarioDB = await PLAGAS.findOne({_id:id})
-//         res.render("detalle_plagas", {
-//             usuario: usuarioDB,
-//             error:false
-//         })
 
-//     } catch (error) {
-//         console.log(error)
-//         res.render("detalle_plagas", {
-//             error: true,
-//             mensaje_plagas:"Lo sentimos, no pudimos encontra su registro"
-//         })
-//     }
-// })
+// mostrar un unico documento en la tabla
+router.get("/:id", async (req, res) => {
+    const id = req.params.id
+    try {
+        const plagasdb = await PLAGAS.findOne({_id:id})
+        res.render("detalle_plagas", {
+            ratoncito: plagasdb,
+            error: false
+        })
+    
+    } catch (error) {
+        console.log(error)
+        res.render("detalle_plagas", {
+            error: true,
+            mensaje: "Lo sentimos , no pudimos encontra a este usuario"
+        })
+    }
+})
 
-// //Borrar un dato de la tabla
-// router.delete("/:id", async (req, res) =>{
-//     const id =req.params.id
-//     try {
-//         const plagasdb = await PLAGAS.findByIdAndDelete({ _id: id })
-//         if (plagasdb) {
-//             res.json({
-//                 estado: true,
-//                 mensaje: "Se eliminó muy bien"
-//             })
-//         } else {
-//             res.json({
-//                 estado: false,
-//                 mensaje:"No se eliminó"
-//             })
-//         }
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-// )
-
-//exportar modulo
+//borrar un dato de la tabla
+//Estamos utilizando delete y copturamos un id , ese id elimina el domcumento y
+// nosotros respondes con un json y al usuario lo redirigimos
+router.delete("/:id", async (req, res) => {
+    const id = req.params.id
+    try {
+        const plagas_db = await PLAGAS.findByIdAndDelete({ _id:id})
+        if (plagas_db) {
+            res.json({
+                estado: true,
+                mensaje:"eliminado"
+            })
+        } else {
+            res.json({
+                estado: false,
+                mensaje: "fallo eliminar"
+            })
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+)
+// exportar modulo
 module.exports = router

@@ -17,7 +17,7 @@
                 <th>Email</th>
                 <th>Fecha disponible</th>
                 <th>Nombre de plaga</th>
-                <th>Editar</th>
+                <th>Acción</th>
             </tr>
             </thead>
             <tbody>
@@ -29,6 +29,7 @@
                     <td><%=ratoncito.Email%></td>
                     <td><%=ratoncito.Fecha_Dis%></td>
                     <td><%=ratoncito.Plagas%></td>
+                    <td><a href="plagas/<%=ratoncito.id%>" class="btn btn-warning btn-sm">Editar</a></td>
                     <!-- <td><a href="plagas/<%=ratoncito.id%>" class="btn btn-warning btn-sm">Editar</a></td> -->
                 </tr>
              <% }) %>

@@ -1,0 +1,46 @@
+<%-include("template/head",{Title:"Detalles"})%>
+    <header>
+        <div class="container">
+            <h1 class="text-center text-danger">Detalle del usuario</h1>
+        </div>
+        <main class="container">
+            <% if (error) { %>
+                <h2 class="text-center">
+                    <%=mensaje%>
+                </h2>
+                <a href="/productos" class="btn btn-primary btn-block">Volver a la tabla de
+                    <% } %>
+                        <% if (!error) { %>
+                            <table class="table table-hover border">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Marca</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <%=producto.id%>
+                                        </td>
+                                        <td>
+                                            <%=producto.nombre%>
+                                        </td>
+                                        <td>
+                                            <%=producto.marca%>
+                                        </td>
+                                        <td>
+                                            <%=producto.precio%>
+                                        </td>
+                                        <td><button class="btn btn-danger btn-sm" id="btn_eliminar-producto"
+                                                data-id="<%=producto.id%>">Eliminar</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <% } %>
+        </main>
+        <script src="/Js-eliminar/producto-eliminar.js"></script>
+
+        <%-include("template/footer")%>

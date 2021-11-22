@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const AUSPICIADORES = require("../models/esquema_auspiciadores");
 
-//Ruta Sergio : "auspiciadores"
+//Ruta jerson : "auspiciadores"
 router.get("/", async (req, res) => {
     try {
         const arrayDB = await AUSPICIADORES.find();
@@ -27,4 +27,48 @@ router.post("/", async (req, res) => {
         console.log(error)
     }
 })
-module.exports = router;
+
+// mostrar un unico documento en la tabla
+router.get("/:id", async (req, res) => {
+    const id = req.params.id
+    try {
+        const auspiDB = await AUSPICIADORES.findOne({ _id: id })
+        res.render("detalle_auspi", {
+            auspiciador: auspiDB,
+            error: false
+        })
+
+    } catch (error) {
+        console.log(error)
+        res.render("detalle_auspi", {
+            error: true,
+            mensaje: "Lo sentimos , no pudimos encontra a este usuario"
+        })
+    }
+})
+
+//borrar un dato de la tabla
+//Estamos utilizando delete y copturamos un id , ese id elimina el domcumento y
+// nosotros respondes con un json y al usuario lo redirigimos
+router.delete("/:id", async (req, res) => {
+    const id = req.params.id
+    try {
+        const auspi_db = await AUSPICIADORES.findByIdAndDelete({ _id: id })
+        if (auspi_db) {
+            res.json({
+                estado: true,
+                mensaje: "eliminado"
+            })
+        } else {
+            res.json({
+                estado: false,
+                mensaje: "fallo eliminar"
+            })
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+)
+// exportar modulo
+module.exports = router

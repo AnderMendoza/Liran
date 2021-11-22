@@ -8,19 +8,22 @@
     <table class="table table-dark table-hover">
       <thead>
         <tr>
+          <th>ID</th>
           <th>Nombre</th>
           <th>Marca</th>
           <th>Precio</th>
+          <th>Acción</th>
         </tr>
       </thead>
       <tbody>
         <% if (arrayproductos.length>0) { %>
             <% arrayproductos.forEach(pro => { %>
                <tr>
-                   <td><%=pro.id%> </td>
+                   <td><%=pro.id%></td>
                    <td><%=pro.nombre%></td>
                    <td><%=pro.marca%></td>
                    <td><%=pro.precio%></td>
+                    <td><a href="productos/<%=pro.id%>" class="btn btn-warning btn-sm">Editar</a></td>
                </tr>
             <% }) %>
            <% } %>

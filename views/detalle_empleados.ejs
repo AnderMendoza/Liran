@@ -1,0 +1,39 @@
+<%-include("template/head",{Title:"Detalles"})%>
+<header>
+    <div class="container">
+    <h1 class="text-center text-danger">Detalle del empleado</h1>
+    </div>
+    <main class="container">
+        <% if (error) { %>
+         <h2 class="text-center"><%=mensaje%></h2>
+         <a href="/plagas" class="btn btn-primary btn-block">Volver a la tabla de 
+        <% } %>
+        <% if (!error) { %>
+            <table class="table table-hover border">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Edad</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td><%=empleado.id%></td>
+                            <td><%=empleado.nombre%></td>
+                            <td><%=empleado.apellido%></td>
+                            <td><%=empleado.correo%></td>
+                            <td><%=empleado.edad%></td>
+                            <td><button class="btn btn-danger btn-sm" id="btn_eliminar-empleado"
+                            data-id="<%=empleado.id%>">Eliminar</button></td>
+                        </tr>
+                </tbody>
+            </table>
+        <% } %>
+    </main>
+<script src="/Js-eliminar/empleado-eliminar.js"></script>
+
+<%-include("template/footer")%>

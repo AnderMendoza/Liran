@@ -9,6 +9,7 @@ router.get("/",async (req,res)=>{
         res.render("productos",{
             arrayproductos:arrayproductosdb
         })
+
     } catch (error) {
         console.log(error)
     }
@@ -27,5 +28,49 @@ router.post("/", async (req, res) => {
         console.log(error)
     }
 })
+
+// mostrar un unico documento en la tabla
+router.get("/:id", async (req, res) => {
+    const id = req.params.id
+    try {
+        
+        const productosdb = await PRODUCTOS.findOne({_id:id})
+        res.render("detalle_productos", {
+            producto: productosdb,
+            error:false
+        })
+
+    } catch (error) {
+        console.log(error)
+        res.render("detalle_productos", {
+            error: true,
+            mensaje:"Lo sentimos , no pudimos encontra a este usuario"
+        })
+    }
+})
+//borrar un dato de la tabla
+//Estamos utilizando delete y copturamos un id , ese id elimina el domcumento y
+// nosotros respondes con un json y al usuario lo redirigimos
+router.delete("/:id", async (req, res) => {
+    const id = req.params.id
+    try {
+        const usuariosDB = await PRODUCTOS.findByIdAndDelete({_id:id})
+        if (usuariosDB) {
+            res.json({
+                estado: true,
+                mensaje:"eliminado"
+            })
+        } else {
+            res.json({
+                estado: false,
+                mensaje: "fallo eliminar"
+            })
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+)
+
 //exportar modulo
 module.exports = router
