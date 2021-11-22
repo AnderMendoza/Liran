@@ -7,7 +7,7 @@
 ***
 ------------------------------------------------------
 IMPORTANTE!!!
-Antes de querer ejecutar el aplicativo web tienes ejecutar el terminal e ingresar el comando "npm i" para descargar los recursos de NodeJS. 
+Antes de querer ejecutar el aplicativo web tienes ejecutar el terminal e ingresar el comando "npm i" para descargar los recursos de NodeJS. Luego al terminar la descarga, en el mismo terminal colocar "node index" para conectar a los servicios.
 ------------------------------------------------------
 Proyecto académico de desarrollo web. Esta página esta centrada en ofrecer productos y sevicios relacionados a la limpieza. 
 ## Screenshot
