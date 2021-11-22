@@ -1,0 +1,30 @@
+<%-include("template/head",{Title:"Proveedores"})%>
+
+    
+  <h2>Proveedores</h2>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos rem in quis eaque alias illum repudiandae tempora beatae rerum, fuga, facilis odit, ea consequuntur ratione vel. Earum voluptatibus placeat nesciunt.</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Empresa</th>
+        <th>Correo</th>
+        <th>Vigencia</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% if (arrayproveedores.length>0) { %>
+            <% arrayproveedores.forEach(proveedores => { %>
+               <tr>
+                   <td><%=proveedores.id%></td>
+                   <td><%=proveedores.empresa%></td>
+                   <td><%=proveedores.correo%></td>
+                   <td><%=proveedores.vigencia%></td>
+               </tr>
+            <% }) %>
+           <% } %>
+    </tbody>
+  </table>
+</div>
+
+
+<%-include("template/footer")%>
