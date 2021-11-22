@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
 
         const empleadosDB = await EMPLEADO.findOne({ _id:id})
         res.render("detalle_empleados", {
-            empleado: empleadosDB,
+            empleadoarray: empleadosDB,
             error: false
         })
 

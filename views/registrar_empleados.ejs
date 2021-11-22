@@ -1,14 +1,14 @@
 <%-include("template/head",{Title:"Empleados"})%>
 <div class="container">
-    <h1 class="text-center">Registrar usuarios</h1>
+    <h1 class="text-center">Registrar Empleados</h1>
     <div class="row">
         <div class="col-12 col-sm-1 col-md-2 col-xl-2"></div>
         <div class="col-12 col-sm-10 col-md-8 border col-xl-8">
-            <form action="/usuarios" method="POST">
+            <form action="/empleados" method="POST">
                 <input type="text" placeholder="Ingresa tu nombre" class="form-control my-2" name="nombre">
                 <input type="text" placeholder="Ingresa tu apellido" class="form-control my-2" name="apellido">
                 <input type="email" placeholder="Ingresa tu correo electronico" class="form-control my-2" name="correo">
-                <input type="number" placeholder="Ingresa tu correo electronico" class="form-control my-2" name="edad">
+                <input type="number" placeholder="Ingresa tu edad" class="form-control my-2" name="edad">
                 <button class="btn btn-success btn-block" type="submit">Registrar</button>
                 <a href="/empleados" class="btn btn-primary btn-block">Volver a la tabla</a>
             </form>

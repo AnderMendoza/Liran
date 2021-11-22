@@ -1,4 +1,4 @@
-<%-include("template/head",{Title:"Detalles"})%>
+<%-include("template/head",{Title:"Empleados"})%>
 <header>
     <div class="container">
     <h1 class="text-center text-danger">Detalle del empleado</h1>
@@ -22,13 +22,13 @@
                 </thead>
                 <tbody>
                         <tr>
-                            <td><%=empleado.id%></td>
-                            <td><%=empleado.nombre%></td>
-                            <td><%=empleado.apellido%></td>
-                            <td><%=empleado.correo%></td>
-                            <td><%=empleado.edad%></td>
+                            <td><%=empleadoarray.id%></td>
+                            <td><%=empleadoarray.nombre%></td>
+                            <td><%=empleadoarray.apellido%></td>
+                            <td><%=empleadoarray.correo%></td>
+                            <td><%=empleadoarray.edad%></td>
                             <td><button class="btn btn-danger btn-sm" id="btn_eliminar-empleado"
-                            data-id="<%=empleado.id%>">Eliminar</button></td>
+                            data-id="<%=empleadoarray.id%>">Eliminar</button></td>
                         </tr>
                 </tbody>
             </table>
