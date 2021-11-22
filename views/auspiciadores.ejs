@@ -10,6 +10,7 @@
     <table class="table table-dark table-striped">
       <thead>
         <tr>
+          <th>ID</th>
           <th>Empresa</th>
           <th>Relacion</th>
           <th>Vigencia</th>
@@ -21,6 +22,7 @@
         <% if (auspiciadoresTable.length>0) { %>
          <% auspiciadoresTable.forEach(element => { %>
             <tr>
+              <td><%=element.id%></td>
                 <td><%=element.empresa%></td>
                 <td><%=element.relacion%></td>
                 <td><%=element.vigencia%></td>
