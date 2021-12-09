@@ -70,5 +70,24 @@ router.delete("/:id", async (req, res) => {
     }
 }
 )
+
+router.put("/:id", async (req, res) => {
+    const id = req.params.id
+    const body = req.body
+    try {
+        const auspi_db = await AUSPICIADORES.findByIdAndUpdate(id, body, { useFindAndModify: false })
+        console.log(auspi_db)
+        res.json({
+            estado: true,
+            mensaje:"editado"
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            estado: false,
+            mensaje: "fallo"
+        })
+    }
+})
 // exportar modulo
 module.exports = router

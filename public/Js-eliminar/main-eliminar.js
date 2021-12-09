@@ -23,3 +23,31 @@ btn.addEventListener('click',async()=>{
         console.log(error)
     }
 })
+
+const formularioEditar = document.getElementById("formularioEditar");
+formularioEditar.addEventListener("submit",async (e)=> {
+    e.preventDefault()
+    const nombre = formularioEditar.elements['nombre'].value;
+    const apellido = document.getElementById("apellidoInput").value;
+    const correo = document.getElementById("correoInput").value;
+    const id_plagas = formularioEditar.dataset.id
+    console.log(nombre, apellido, correo, id_plagas)
+    try {
+        const data = await fetch(`/usuarios/${id_plagas}`,{
+            method:'put',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({nombre,apellido,correo})
+        })
+        const res = await data.json()
+        console.log(res)
+        if(res.estado){
+             window.location.href = "/usuarios"
+         }else{
+             console.log(res)
+         }
+    } catch (error) {
+        console.log(error)
+    }
+})

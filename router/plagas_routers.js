@@ -73,5 +73,23 @@ router.delete("/:id", async (req, res) => {
     }
 }
 )
+
+router.put("/:id", async (req, res) => {
+    const id = req.params.id
+    const body = req.body
+    try {
+        const plagas_dba = await PLAGAS.findByIdAndUpdate(id, body, { useFindAndModify: false });
+        res.json({
+            status: true,
+            mensaje:'editado'
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            status: false,
+            mensaje: 'fallo'
+        })
+    }
+})
 // exportar modulo
 module.exports = router

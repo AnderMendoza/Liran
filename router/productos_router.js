@@ -5,7 +5,6 @@ const PRODUCTOS = require("../models/esquema_productos")
 router.get("/",async (req,res)=>{
     try {
         const arrayproductosdb = await PRODUCTOS.find()
-        console.log(arrayproductosdb)
         res.render("productos",{
             arrayproductos:arrayproductosdb
         })
@@ -21,8 +20,8 @@ router.get("/registrar", (req, res) => {
 router.post("/", async (req, res) => {
     const body = req.body;
     try {
-        const productodb = new PRODUCTOS(body)
-        await productodb.save()
+        const productosdb = new PRODUCTOS(body)
+        await productosdb.save()
         res.redirect("productos")
     } catch (error) {
         console.log(error)
@@ -33,7 +32,6 @@ router.post("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     const id = req.params.id
     try {
-        
         const productosdb = await PRODUCTOS.findOne({_id:id})
         res.render("detalle_productos", {
             producto: productosdb,
@@ -54,8 +52,8 @@ router.get("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     const id = req.params.id
     try {
-        const usuariosDB = await PRODUCTOS.findByIdAndDelete({_id:id})
-        if (usuariosDB) {
+        const productosdb = await PRODUCTOS.findByIdAndDelete({_id:id})
+        if (productosdb) {
             res.json({
                 estado: true,
                 mensaje:"eliminado"
@@ -71,6 +69,22 @@ router.delete("/:id", async (req, res) => {
     }
 }
 )
-
+router.put("/:id", async (req, res) => {
+    const id = req.params.id
+    const body = req.body
+    try {
+        const productosdb = await PRODUCTOS.findByIdAndUpdate(id, body, { useFindAndModify: false })
+        res.json({
+            estado: true,
+            mensaje:"editado"
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            estado: false,
+            mensaje:"fallo"
+        })
+    }
+})
 //exportar modulo
 module.exports = router

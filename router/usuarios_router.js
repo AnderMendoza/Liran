@@ -54,8 +54,8 @@ router.get("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     const id = req.params.id
     try {
-        const usuariosDB = await USUARIO.findByIdAndDelete({ _id: id })
-        if (usuariosDB) {
+        const usuarioDB = await USUARIO.findByIdAndDelete({ _id: id })
+        if (usuarioDB) {
             res.json({
                 estado: true,
                 mensaje:"eliminado"
@@ -71,4 +71,22 @@ router.delete("/:id", async (req, res) => {
     }
 }
 )
+
+router.put("/:id", async (req, res) => {
+    const id = req.params.id
+    const body =req.body
+    try { 
+        const usuarioDB = await USUARIO.findByIdAndUpdate(id, body, { useFindAndModify: false });
+        res.json({
+            estado: true,
+            mensaje:'editado'
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({
+            estado: false,
+            mensaje: 'fallo'
+        })
+    }
+})
 module.exports = router;

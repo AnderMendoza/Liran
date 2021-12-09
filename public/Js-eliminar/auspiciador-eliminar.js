@@ -21,3 +21,34 @@ btn.addEventListener('click', async () => {
         console.log(error)
     }
 })
+const formularioEditar = document.getElementById("formularioEditar");
+formularioEditar.addEventListener("submit", async(e) => {
+    e.preventDefault()
+    const empresaAuspici = document.getElementById("empresaAuspici")
+    var empresaAuspici_uno = (empresaAuspici.value)
+    const relacionAuspici = document.getElementById("relacionAuspici")
+    var relacionAuspici_uno = (relacionAuspici.value)
+    const vigenciaAuspici = document.getElementById("vigenciaAuspici")
+    var vigenciaAuspici_uno = (vigenciaAuspici.value)
+    const correoAuspici = document.getElementById("correoAuspici")
+    var correoAuspici_uno = (correoAuspici.value)
+    // console.log(empresaAuspici_uno, relacionAuspici_uno, vigenciaAuspici_uno, correoAuspici_uno)
+    const id = formularioEditar.dataset.id
+    try {
+        const data = await fetch(`/auspiciadores/${id}`,{
+            method:'put',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({empresaAuspici_uno,relacionAuspici_uno,vigenciaAuspici_uno,correoAuspici_uno})
+        })
+        const res = await data.json()
+        if (res.estado) {
+            window.location.href = "/auspiciadores"
+        }else{
+            console.log(res)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+})

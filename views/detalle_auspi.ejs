@@ -1,7 +1,7 @@
 <%-include("template/head",{Title:"Detalles"})%>
     <header>
         <div class="container">
-            <h1 class="text-center text-danger">Detalle del empleado</h1>
+            <h1 class="text-center text-danger">Detalle de los auspiciadores</h1>
         </div>
         <main class="container">
             <% if (error) { %>
@@ -11,40 +11,17 @@
                 <a href="/plagas" class="btn btn-primary btn-block">Volver a la tabla de
                     <% } %>
                         <% if (!error) { %>
-                            <table class="table table-hover border">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Empresa</th>
-                                        <th>Relacion</th>
-                                        <th>Vigencia</th>
-                                        <th>Correo</th>
-                                        <th>Acción</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <%=auspiciador.id%>
-                                        </td>
-                                        <td>
-                                            <%=auspiciador.empresa%>
-                                        </td>
-                                        <td>
-                                            <%=auspiciador.relacion%>
-                                        </td>
-                                        <td>
-                                            <%=auspiciador.vigencia%>
-                                        </td>
-                                        <td>
-                                            <%=auspiciador.correo%>
-                                        </td>
-                                        <td><button class="btn btn-danger btn-sm" id="btn_eliminar-auspiciador"
-                                                data-id="<%=auspiciador.id%>">Eliminar</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <% } %>
+    <form id="formularioEditar" data-id="<%=auspiciador.id%>">
+    <input type="text" class="form-control my-2" name="empresa" value="<%=auspiciador.empresa%>" id="empresaAuspici">
+    <input type="text" class="form-control my-2" name="relacion" value=" <%=auspiciador.relacion%>" id="relacionAuspici">
+    <input type="text" class="form-control my-2" name="vigencia" value=" <%=auspiciador.vigencia%>" id="vigenciaAuspici">
+    <input type="text" class="form-control my-2" name="correo" value=" <%=auspiciador.correo%>" id="correoAuspici">
+    <button class="btn btn-warning btn-block" type="submit">Editar</button>
+    </form>
+        <hr>
+    <button class="btn btn-danger btn-sm" id="btn_eliminar-auspiciador"
+    data-id="<%=auspiciador.id%>">Eliminar</button>
+        <% } %>
         </main>
         <script src="/Js-eliminar/auspiciador-eliminar.js"></script>
 

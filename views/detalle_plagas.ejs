@@ -1,7 +1,7 @@
 <%-include("template/head",{Title:"Detalles"})%>
 <header>
     <div class="container">
-    <h1 class="text-center text-danger">Detalle del usuario</h1>
+    <h1 class="text-center text-danger">Detalle de la plaga</h1>
     </div>
     <main class="container">
         <% if (error) { %>
@@ -9,29 +9,16 @@
          <a href="/plagas" class="btn btn-primary btn-block">Volver a la tabla de 
         <% } %>
         <% if (!error) { %>
-            <table class="table table-hover border">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Nombre</th>
-                        <th>plaga</th>
-                        <th>Email</th>
-                        <th>Fecha disponible</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td><%=ratoncito.id%></td>
-                            <td><%=ratoncito.Nombre_Persona%></td>
-                            <td><%=ratoncito.Plagas%></td>
-                            <td><%=ratoncito.Email%></td>
-                            <td><%=ratoncito.Fecha_Dis%></td>
-                            <td><button class="btn btn-danger btn-sm" id="btn_eliminar-plagas"
-                            data-id="<%=ratoncito.id%>">Eliminar</button></td>
-                        </tr>
-                </tbody>
-            </table>
+            <form id="formularioEditarPlagas" data-id="<%=ratoncito.id%>">
+                <input type="text" class="form-control my-2" name="Nombre_Persona" value="<%=ratoncito.Nombre_Persona%>" id="nombrePersona" placeholder="ingresa tu nombre">
+                <input type="text" class="form-control my-2" name="Plagas" value="<%=ratoncito.Plagas%>" id="nombrePlaga" placeholder="ingresa el nombre de la plaga">
+                <input type="text" class="form-control my-2" name="Email" value="<%=ratoncito.Email%>" id="correoEmail" placeholder="ingresa la fecha">
+                <input type="datetime-local" class="form-control my-2" name="Fecha_Dis" value="<%=ratoncito.Fecha_Dis%>" id="fecha" placeholder="ingrese su correo electrónico">
+                <button class="btn btn-warning btn-block" type="submit">Editar</button>
+            </form>
+            <hr>
+            <button class="btn btn-danger btn-sm" id="btn_eliminar-plagas" data-id="<%=ratoncito.id%>">Eliminar</button>
+            
         <% } %>
     </main>
 <script src="/Js-eliminar/plagas-eliminar.js"></script>

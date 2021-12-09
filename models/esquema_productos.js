@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const productosSchema = new Schema({
     nombre:String,
     marca:String,
-    precio:String,
+    precio:Number,
 })
 
 const PRODUCTOS = mongoose.model("PRODUCTOS", productosSchema)

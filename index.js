@@ -3,7 +3,7 @@ const express = require("express");
 //requerir de mongoose
 const mongoose = require("mongoose");
 //requerir body parser
-const bodyPrser = require("Body-parser");
+const bodyParser = require("body-parser");
 //requerimiento de express 
 const server = express();
 //puerto 3000 que es por defecto 
@@ -38,7 +38,7 @@ server.get("/", (req,res) => {
     res.render( "index")
 })
 
-//Ruta(Router) Sergio : "empleados"
+//Ruta(Router) nick : "empleados"
 server.use("/empleados", require("./router/empleados"));
 
 //Ruta usuarios : Sergio

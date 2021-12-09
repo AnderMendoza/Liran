@@ -21,3 +21,34 @@ btn.addEventListener('click', async () => {
         console.log(error)
     }
 })
+const formularioEditarPlagas = document.getElementById("formularioEditarPlagas");
+formularioEditarPlagas.addEventListener("submit", async (e) => {
+    e.preventDefault()
+    const nombre = document.getElementById('nombrePersona').value;
+    // let nombreUno = (nombre.value)
+    const plaga = document.getElementById("nombrePlaga").value;
+    // let plagaUno = (plaga.value)
+    const correo = document.getElementById("correoEmail").value;
+    // let correoPlaga = (correo.value)
+    const fechaPlaga = document.getElementById("fecha").value;
+    // let fechas = (fechaPlaga.value)
+    var id = formularioEditarPlagas.dataset.id;
+    // console.log(nombreUno, plagaUno, correoPlaga, fechas,id)
+        try {
+        const datos = await fetch(`/plagas/${id}`,{
+            method:'put',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({nombre,plaga,correo,fechaPlaga})
+        })
+            const res = await datos.json()
+         if(res.status){
+             window.location.href = "/plagas"
+         }else{
+             console.log(res)
+         }
+    } catch (error) {
+        console.log(error)
+    }
+})

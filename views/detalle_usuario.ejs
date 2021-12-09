@@ -9,27 +9,18 @@
          <a href="/usuarios" class="btn btn-primary btn-block">Volver a la tabla de 
         <% } %>
         <% if (!error) { %>
-            <table class="table table-hover border">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Email</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td><%=usuario.id%></td>
-                            <td><%=usuario.nombre%></td>
-                            <td><%=usuario.apellido%></td>
-                            <td><%=usuario.correo%></td>
-                            <td><button class="btn btn-danger btn-sm" id="btn_eliminar"
-                            data-id="<%=usuario.id%>">Eliminar</button></td>
-                        </tr>
-                </tbody>
-            </table>
+
+            <form id="formularioEditar" data-id="<%=usuario.id%>">
+                <input type="text" class="form-control my-2" name="nombre"
+                value="<%=usuario.nombre%>" id="nombreInput">
+                <input type="text" class="form-control my-2" name="apellido" value="<%=usuario.apellido%>" id="apellidoInput">
+                <input type="text" class="form-control my-2" name="correo" value="<%=usuario.correo%>"  id="correoInput">
+                <button class="btn btn-primary btn-block" type="submit"
+                >Editar</button>
+            </form>
+            <hr>
+
+            <button class="btn btn-danger btn-block" id="btn_eliminar" data-id="<%=usuario.id%>">Eliminar</button>
         <% } %>
     </main>
 <script src="/Js-eliminar/main-eliminar.js"></script>

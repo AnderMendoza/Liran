@@ -17,13 +17,13 @@
       </thead>
       <tbody>
         <% if (arrayproductos.length>0) { %>
-            <% arrayproductos.forEach(pro => { %>
+            <% arrayproductos.forEach(producto => { %>
                <tr>
-                   <td><%=pro.id%></td>
-                   <td><%=pro.nombre%></td>
-                   <td><%=pro.marca%></td>
-                   <td><%=pro.precio%></td>
-                    <td><a href="productos/<%=pro.id%>" class="btn btn-warning btn-sm">Editar</a></td>
+                   <td><%=producto.id%></td>
+                   <td><%=producto.nombre%></td>
+                   <td><%=producto.marca%></td>
+                   <td><%=producto.precio%></td>
+                    <td><a href="productos/<%=producto.id%>" class="btn btn-warning btn-sm">Editar</a></td>
                </tr>
             <% }) %>
            <% } %>
