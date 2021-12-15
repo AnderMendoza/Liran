@@ -12,7 +12,6 @@
             <form id="formularioEditarproveedores" data-id="<%=proveedor.id%>">
                 <input type="text" class="form-control my-2" name="empresa" value="<%=proveedor.empresa%>" id="proveedores.empresa">
                 <input type="email" class="form-control my-2" name="correo" value="<%=proveedor.correo%>" id="proveedores.correo">
-                <input type="number" class="form-control my-2" name="vigencia" value="<%=proveedor.vigencia%>" id="proveedores.vigencia">
                 <button class="btn btn-warning btn-block" type="submit">Editar</button>
             </form>
             <hr>
@@ -20,6 +19,6 @@
             
         <% } %>
     </main>
-<script src="/Js-eliminar/proveedores-eliminar.js"></script>
+<script src="/Js-eliminar/proveedores_eliminar.js"></script>
 
 <%-include("template/footer")%>

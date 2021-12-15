@@ -26,16 +26,15 @@ formularioEditarPLaga.addEventListener("submit", async(e) => {
     e.preventDefault()
     const nombreProveedores = document.getElementById("nombreProveedores").value;
     const nombreCorreo = document.getElementById("nombreCorreo").value;
-    const nombreVigencia = document.getElementById("nombreVigencia").value;
     const id = formularioEditarPLaga.dataset.id;
-    console.log(nombreProveedores, nombreCorreo,nombreEvidencia,id)
+    console.log(nombreProveedores, nombreCorreo, id)
     try {
          const data = await fetch(`/proveedores/${id}`,{
              method:'put',
              headers:{
                  'Content-Type':'application/json'
              },
-             body: JSON.stringify({ nombreProveedores, nombreCorreo, nombreVigencia})
+             body: JSON.stringify({ nombreProveedores, nombreCorreo})
          })
         const res = await data.json()
         console.log(res)
