@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const proveedoresSchema = new Schema({
     empresa:String,
     correo:String,
-    vIgencia:String,
+    vigencia:String,
 })
 
 const PROVEEDORES = mongoose.model("PROVEEDORES", proveedoresSchema)

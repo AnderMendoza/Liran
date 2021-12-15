@@ -1,14 +1,18 @@
 <%-include("template/head",{Title:"Proveedores"})%>
 
-    
-  <h2>Proveedores</h2>
+<header class="container">
+  <h1 class="display-2 text-primary text-center mb-3">Proveedores</h1>
   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos rem in quis eaque alias illum repudiandae tempora beatae rerum, fuga, facilis odit, ea consequuntur ratione vel. Earum voluptatibus placeat nesciunt.</p>
+  <div class="container">
+    <a class="btn btn-warning btn-block my-4" href="/proveedores/registrar">Agregar proveedores</a>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Empresa</th>
+        <th>ID</t>
+        <th>Empresa</th> 
         <th>Correo</th>
         <th>Vigencia</th>
+        <th>Acción</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +23,7 @@
                    <td><%=proveedores.empresa%></td>
                    <td><%=proveedores.correo%></td>
                    <td><%=proveedores.vigencia%></td>
+                    <td><a href="proveedores/<%=proveedores.id%>" class="btn btn-warning btn-sm">Editar</a></td>
                </tr>
             <% }) %>
            <% } %>

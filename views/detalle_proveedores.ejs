@@ -1,0 +1,25 @@
+<%-include("template/head",{Title:"Detalles"})%>
+<header>
+    <div class="container">
+    <h1 class="text-center text-danger">Detalle de los proveedores</h1>
+    </div>
+    <main class="container">
+        <% if (error) { %>
+         <h2 class="text-center"><%=mensaje%></h2>
+         <a href="/proveedores" class="btn btn-primary btn-block">Volver a la tabla de 
+        <% } %>
+        <% if (!error) { %>
+            <form id="formularioEditarproveedores" data-id="<%=proveedor.id%>">
+                <input type="text" class="form-control my-2" name="empresa" value="<%=proveedor.empresa%>" id="proveedores.empresa">
+                <input type="email" class="form-control my-2" name="correo" value="<%=proveedor.correo%>" id="proveedores.correo">
+                <input type="number" class="form-control my-2" name="vigencia" value="<%=proveedor.vigencia%>" id="proveedores.vigencia">
+                <button class="btn btn-warning btn-block" type="submit">Editar</button>
+            </form>
+            <hr>
+            <button class="btn btn-danger btn-sm" id="btn_eliminar-proveedores" data-id="<%=proveedor.id%>">Eliminar</button>
+            
+        <% } %>
+    </main>
+<script src="/Js-eliminar/proveedores-eliminar.js"></script>
+
+<%-include("template/footer")%>

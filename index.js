@@ -53,6 +53,9 @@ server.use("/productos", require("./router/productos_router"));
 //Ruta auspiciadores: jerson
 server.use("/auspiciadores", require("./router/auspiciadores_router"));
 
+//Ruta proveedores: Francisco
+server.use("/proveedores",require("./router/proveedores_routers"));
+
 
 //Error 404 en ejs
 server.use((req, res, next) => {

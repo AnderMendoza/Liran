@@ -1,0 +1,17 @@
+<%-include("template/head",{Title:"proveedores"})%>
+<div class="container">
+    <h1 class="text-center">Registrar proveedor</h1>
+    <div class="row">
+        <div class="col-12 col-sm-1 col-md-2 col-xl-2"></div>
+        <div class="col-12 col-sm-10 col-md-8 border col-xl-8">
+            <form action="/proveedores" method="POST">
+                <input type="text" placeholder="Ingresa empresa" class="form-control my-2" name="empresa">
+                <input type="email" placeholder="Ingresa correo" class="form-control my-2" name="correo">
+                <input type="text" placeholder="Ingresa vigencia" class="form-control my-2" name="vigencia">
+                <button class="btn btn-success btn-block" type="submit">Registrar</button>
+                <a href="/proveedores" class="btn btn-primary btn-block">Volver a la tabla</a>
+            </form>
+        </div>
+        <div class="col-12 col-sm-1 col-md-2 col-xl-2"></div>
+</div>
+<%-include("template/footer")%>
