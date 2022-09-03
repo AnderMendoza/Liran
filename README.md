@@ -5,7 +5,7 @@
 4. [FAQs](#faqs)
 ***
 ## Info General
-Proyecto académico de desarrollo web. Esta página esta centrada en ofrecer productos y sevicios relacionados a la limpieza. 
+Proyecto académico de un CRUD implementado con NodeJs y Docker.
 ***
 ## Tecnologías
 Una lista de tecnologías utilizadas dentro del proyecto:
